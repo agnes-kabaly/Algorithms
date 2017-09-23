@@ -69,39 +69,34 @@ public class MySolution implements Solution {
     @Override
     public String titleCase(String word) {
         char[] charArray = word.toCharArray();
-        //char[] resArray = new char[charArray.length];
-        String b = "";
-        b += Character.toUpperCase(charArray[0]);
-        //resArray[0] = Character.toUpperCase(charArray[0]);
+        char[] resArray = new char[charArray.length];
+        resArray[0] = Character.toUpperCase(charArray[0]);
         for (int i = 1; i < charArray.length; i++) {
             if (charArray[i-1] == ' ') {
-                b += Character.toUpperCase(charArray[i]);
-                //resArray[i] = Character.toUpperCase(charArray[i]);
+                resArray[i] = Character.toUpperCase(charArray[i]);
             } else {
-                //resArray[i] = Character.toLowerCase(charArray[i]);
-                b += Character.toLowerCase(charArray[i]);
+                resArray[i] = Character.toLowerCase(charArray[i]);
             }
         }
-        return b;
-        //return new String(resArray);
+        return new String(resArray);
     }
 
     @Override
     public int[] largestOfFour(int[][] numbers) {
-        int[] result = new int[4];
+        int[] result = new int[numbers.length];
         for (int i = 0; i < numbers.length; i++) {
-            result[i] = findMax(numbers[i]);
+            result[i] = findMaxIndexValue(numbers[i]);
         }
         return result;
     }
-    public int findMax(int[] eachArray) {
-        int max = eachArray[0];
+    public int findMaxIndexValue(int[] eachArray) {
+        int maxI = 0;
         for (int i = 0; i < eachArray.length; i++) {
-            if (eachArray[i] > max) {
-                max = eachArray[i];
+            if (eachArray[i] > eachArray[maxI]) {
+                maxI = i;
             }
         }
-        return max;
+        return eachArray[maxI];
     }
 
     @Override
@@ -161,7 +156,14 @@ public class MySolution implements Solution {
 
     @Override
     public Object[] slasher(Object[] numbers, int counter) {
-        return new Object[0];
+        List<Object> resultList = new ArrayList<Object>();
+        if (numbers.length < counter) {
+            return new Object[0];
+        }
+        for (int i = counter; i < numbers.length; i++) {
+            resultList.add(numbers[i]);
+        }
+        return resultList.toArray();
     }
 
     @Override
