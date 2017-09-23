@@ -139,7 +139,24 @@ public class MySolution implements Solution {
 
     @Override
     public Object[][] chunkArrayInGroups(Object[] numbers, int counter) {
-        return new Object[0][];
+        int numberOfArrays = (int) Math.ceil((double) numbers.length / counter);
+        Object[][] result = new Object[numberOfArrays][];
+        List<Object> eachArr = new ArrayList();
+        int addedItems = 0;
+        int addedArrays = 0;
+        while (addedItems < numberOfArrays) {
+            for (int i = 0; i < numbers.length; i++) {
+                if (eachArr.size() == counter) {
+                    result[addedArrays] = eachArr.toArray();
+                    eachArr = new ArrayList<>();
+                    addedArrays++;
+                }
+                eachArr.add(numbers[i]);
+                addedItems++;
+            }
+        }
+        result[addedArrays] = eachArr.toArray();
+        return result;
     }
 
     @Override
