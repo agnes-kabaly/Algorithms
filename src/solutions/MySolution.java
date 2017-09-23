@@ -129,7 +129,12 @@ public class MySolution implements Solution {
 
     @Override
     public String truncateString(String word, int counter) {
-        return null;
+        if (word.length() <= 3 || counter <= 3) {
+            return word.substring(0, counter) + "...";
+        } else if (word.length() > counter){
+            return word.substring(0, counter-3) + "...";
+        }
+        return word;
     }
 
     @Override
