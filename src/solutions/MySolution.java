@@ -1,5 +1,6 @@
 package solutions;
 
+import javax.management.AttributeList;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -169,7 +170,14 @@ public class MySolution implements Solution {
 
     @Override
     public Object[] bouncer(Object[] objects) {
-        return new Object[0];
+        List<Object> result = new ArrayList<>();
+        Object[] falsy = {false, 0, null, ""};
+        for (int i = 0; i < objects.length; i++) {
+            if (!Arrays.asList(falsy).contains(objects[i])) {
+                result.add(objects[i]);
+            }
+        }
+        return result.toArray();
     }
 
     @Override
