@@ -182,11 +182,36 @@ public class MySolution implements Solution {
 
     @Override
     public int getIndexToIns(Object[] numbers, float number) {
-        return 0;
+        int counter = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            int eachObj = ((Integer) numbers[i]).intValue();
+            if (number > eachObj) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     @Override
     public String rot13(String word) {
-        return null;
+        String result = "";
+        char[] charArr = word.toLowerCase().toCharArray();
+        List<Character> alphabet = new ArrayList<>();
+        for (char character = 'a'; character <= 'z'; character++) {
+            alphabet.add(character);
+        }
+        for (int i = 0; i <charArr.length; i++) {
+            if (Character.isLetter(charArr[i])) {
+                int ceasarsI = alphabet.indexOf(charArr[i]) + 13;
+                if (ceasarsI >= alphabet.size()) {
+                    result += alphabet.get(ceasarsI - alphabet.size());
+                } else {
+                    result += alphabet.get(ceasarsI);
+                }
+            } else {
+                result += charArr[i];
+            }
+        }
+        return result.toUpperCase();
     }
 }
