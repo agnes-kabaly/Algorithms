@@ -168,6 +168,11 @@ public class MySolution implements Solution {
     }
 
     @Override
+    public Object[] bouncer(Object[] objects) {
+        return new Object[0];
+    }
+
+    @Override
     public Object[] destroyer(Object[] numbers, Object... remove) {
         List<Object> resultList = new ArrayList<>();
         List<Object> removeList = Arrays.asList(remove);

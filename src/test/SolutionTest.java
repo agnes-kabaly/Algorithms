@@ -158,6 +158,14 @@ import static org.junit.Assert.*;
         }
 
         @Test
+        public void bouncer() throws Exception {
+            assertArrayEquals(new Object[]{7, "ate", 9}, solution.bouncer(new Object[]{7, "ate", "", false, 9}));
+            assertArrayEquals(new Object[]{"a", "b", "c"}, solution.bouncer(new Object[]{"a", "b", "c"}));
+            assertArrayEquals(new Object[]{}, solution.bouncer(new Object[]{false, null, 0, ""}));
+            assertArrayEquals(new Object[]{1, 2}, solution.bouncer(new Object[]{1, null, false, 2, null}));
+        }
+
+        @Test
         public void destroyer() throws Exception {
             assertArrayEquals(new Object[]{1,1},solution.destroyer(new Object[]{1,2,3,1,2,3},new Object[]{2,3}));
             assertArrayEquals(new Object[]{1,5,1},solution.destroyer(new Object[]{1,2,3,5,1,2,3},new Object[]{2,3}));
@@ -184,9 +192,5 @@ import static org.junit.Assert.*;
             assertEquals("FREE LOVE?",solution.rot13("SERR YBIR?"));
             assertEquals("THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX.",solution.rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK."));
         }
-
-
-
-
 
     }

@@ -12,6 +12,7 @@ public interface Solution {
     String truncateString(String word,int counter);
     Object[][] chunkArrayInGroups(Object[] numbers,int counter);
     Object[] slasher(Object[] numbers,int counter);
+    Object[] bouncer(Object[] objects);
     Object[] destroyer(Object[] numbers,Object... remove);
     int getIndexToIns(Object[] numbers,float number);
     String rot13(String word);
