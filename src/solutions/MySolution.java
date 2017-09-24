@@ -1,6 +1,7 @@
 package solutions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MySolution implements Solution {
@@ -168,7 +169,15 @@ public class MySolution implements Solution {
 
     @Override
     public Object[] destroyer(Object[] numbers, Object... remove) {
-        return new Object[0];
+        List<Object> resultList = new ArrayList<>();
+        List<Object> removeList = Arrays.asList(remove);
+        for (int i = 0; i < numbers.length; i++) {
+            if (removeList.contains(numbers[i])){
+            } else {
+                resultList.add(numbers[i]);
+            }
+        }
+        return resultList.toArray();
     }
 
     @Override

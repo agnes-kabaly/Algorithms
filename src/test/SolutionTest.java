@@ -153,14 +153,17 @@ import static org.junit.Assert.*;
             assertArrayEquals(new Object[]{1,2,3},solution.slasher(new Object[]{1,2,3},0));
             assertArrayEquals(new Object[]{},solution.slasher(new Object[]{1,2,3},9));
             assertArrayEquals(new Object[]{},solution.slasher(new Object[]{1,2,3},4));
+            assertArrayEquals(new Object[]{"fries", "shake"},solution.slasher(new Object[]{"burgers", "fries", "shake"},1));
+            assertArrayEquals(new Object[]{"cheese", 4},solution.slasher(new Object[]{1, 2, "chicken", 3, "potatoes", "cheese", 4},5));
         }
 
         @Test
         public void destroyer() throws Exception {
-            assertArrayEquals(new Object[]{1,1},solution.destroyer(new Object[]{1,2,3,1,2,3},new int[]{2,3}));
-            assertArrayEquals(new Object[]{1,5,1},solution.destroyer(new Object[]{1,2,3,5,1,2,3},new int[]{2,3}));
-            assertArrayEquals(new Object[]{1},solution.destroyer(new Object[]{3,5,1,2,2},new int[]{2,3,5}));
-            assertArrayEquals(new Object[]{},solution.destroyer(new Object[]{2,3,2,3},new int[]{2,3,}));
+            assertArrayEquals(new Object[]{1,1},solution.destroyer(new Object[]{1,2,3,1,2,3},new Object[]{2,3}));
+            assertArrayEquals(new Object[]{1,5,1},solution.destroyer(new Object[]{1,2,3,5,1,2,3},new Object[]{2,3}));
+            assertArrayEquals(new Object[]{1},solution.destroyer(new Object[]{3,5,1,2,2},new Object[]{2,3,5}));
+            assertArrayEquals(new Object[]{},solution.destroyer(new Object[]{2,3,2,3},new Object[]{2,3,}));
+            assertArrayEquals(new Object[]{"hamburger"},solution.destroyer(new Object[]{"tree", "hamburger", 53},new Object[]{"tree", 53}));
         }
 
         @Test
