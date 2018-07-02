@@ -1,6 +1,5 @@
 package solutions;
 
-import javax.management.AttributeList;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +8,7 @@ public class MySolution implements Solution {
     @Override
     public String reverseString(String word) {
         char[] charArray = word.toCharArray();
-        char temp = 0;
+        char temp;
         int begin = 0;
         int end = charArray.length-1;
         String result;
@@ -42,16 +41,14 @@ public class MySolution implements Solution {
                 charList.add(Character.toLowerCase(wordArray[i]));
             }
         }
-        for (int i = 0; i < charList.size(); i++) {
-            int begin = 0;
-            int end = charList.size()-1;
-            while (end > begin) {
-                if (charList.get(begin) != charList.get(end)) {
-                    return false;
-                }
-                begin++;
-                end--;
+        int begin = 0;
+        int end = charList.size()-1;
+        while (end > begin) {
+            if (charList.get(begin) != charList.get(end)) {
+                return false;
             }
+            begin++;
+            end--;
         }
         return true;
     }
@@ -139,18 +136,14 @@ public class MySolution implements Solution {
         int numberOfArrays = (int) Math.ceil((double) numbers.length / counter);
         Object[][] result = new Object[numberOfArrays][];
         List<Object> eachArr = new ArrayList();
-        int addedItems = 0;
         int addedArrays = 0;
-        while (addedItems < numberOfArrays) {
-            for (int i = 0; i < numbers.length; i++) {
-                if (eachArr.size() == counter) {
-                    result[addedArrays] = eachArr.toArray();
-                    eachArr = new ArrayList<>();
-                    addedArrays++;
-                }
-                eachArr.add(numbers[i]);
-                addedItems++;
+        for (int i = 0; i < numbers.length; i++) {
+            if (eachArr.size() == counter) {
+                result[addedArrays] = eachArr.toArray();
+                eachArr = new ArrayList<>();
+                addedArrays++;
             }
+            eachArr.add(numbers[i]);
         }
         result[addedArrays] = eachArr.toArray();
         return result;
@@ -181,13 +174,11 @@ public class MySolution implements Solution {
     }
 
     @Override
-    public Object[] destroyer(Object[] numbers, Object... remove) {
+    public Object[] destroyer(Object[] objects, Object... remove) {
         List<Object> resultList = new ArrayList<>();
-        List<Object> removeList = Arrays.asList(remove);
-        for (int i = 0; i < numbers.length; i++) {
-            if (removeList.contains(numbers[i])){
-            } else {
-                resultList.add(numbers[i]);
+        for (int i = 0; i < objects.length; i++) {
+            if (!Arrays.asList(remove).contains(objects[i])) {
+                resultList.add(objects[i]);
             }
         }
         return resultList.toArray();

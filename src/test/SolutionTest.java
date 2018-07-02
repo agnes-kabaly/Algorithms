@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
     public class SolutionTest {
 
         private Solution solution = new MySolution();
+
         @Test
         public void testTitleCase() throws Exception {
             assertEquals("I'm A Little Tea Pot",solution.titleCase("I'm a little tea pot"));
@@ -24,9 +25,9 @@ import static org.junit.Assert.*;
             assertEquals(8,solution.findLongestWord("What is the average airspeed velocity of an unladen swallow"));
             assertEquals(19,solution.findLongestWord("What if we try a super-long word such as otorhinolaryngology"));
         }
+
         @Test
         public void testPalindrome() throws Exception {
-
             assertTrue(solution.palindrome("eye"));
             assertTrue(solution.palindrome("_eye"));
             assertTrue(solution.palindrome("race car"));
@@ -41,30 +42,23 @@ import static org.junit.Assert.*;
             assertFalse(solution.palindrome("five|\\_/|four"));
         }
 
-
         @Test
         public void testFactorialize() throws Exception {
             assertEquals(120,solution.factorialize(5));
             assertEquals(3628800,solution.factorialize(10));
             assertEquals("2432902008176640000",String.valueOf(solution.factorialize(20)));
             assertEquals(1,solution.factorialize(0));
-
         }
 
-
         @Test
-        public void testRevesreString(){
-
+        public void testReverseString(){
             assertEquals("olleh", solution.reverseString("hello"));
             assertEquals("ydwoH", solution.reverseString("Howdy"));
             assertEquals("htraE morf sgniteerG", solution.reverseString("Greetings from Earth"));
-
-
         }
 
         @Test
         public void testlargestOfFour()throws Exception{
-
             assertArrayEquals(new int []{27,5,39,1001},solution.largestOfFour(new int[][]{
                     {13,27,18,26},
                     {4,5,1,3},
@@ -77,7 +71,6 @@ import static org.junit.Assert.*;
                     {32,35,97,39},
                     {1000000,1001,857,1}
             }));
-
         }
 
         @Test
