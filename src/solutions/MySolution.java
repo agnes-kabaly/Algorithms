@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MySolution implements Solution {
+
     @Override
     public String reverseString(String word) {
         char[] charArray = word.toCharArray();
