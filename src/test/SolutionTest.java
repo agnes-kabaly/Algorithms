@@ -186,4 +186,40 @@ import static org.junit.Assert.*;
             assertEquals("THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX.",solution.rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK."));
         }
 
+        @Test
+        public void endsWith() {
+            assertTrue(solution.endsWith("abc", "bc"));
+            assertFalse(solution.endsWith("abc", "d"));
+        }
+
+        @Test
+        public void canPack() {
+            assertFalse(solution.canPack(1, 0, 4));
+            assertTrue(solution.canPack(1, 0, 5));
+            assertTrue(solution.canPack(0, 5, 4));
+            assertTrue(solution.canPack(2, 2, 12));
+            assertFalse(solution.canPack(-3, 2, 12));
+            assertTrue(solution.canPack(2, 1, 5));
+            assertTrue(solution.canPack(4, 18, 19));
+        }
+
+        @Test
+        public void printSquareStar() {
+            assertEquals("" +
+                    "*****\n" +
+                    "** **\n" +
+                    "* * *\n" +
+                    "** **\n" +
+                    "*****", solution.printSquareStar(5));
+            assertEquals("" +
+                    "********\n" +
+                    "**    **\n" +
+                    "* *  * *\n" +
+                    "*  **  *\n" +
+                    "*  **  *\n" +
+                    "* *  * *\n" +
+                    "**    **\n" +
+                    "********", solution.printSquareStar(8));
+        }
+
     }

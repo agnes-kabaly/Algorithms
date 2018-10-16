@@ -16,4 +16,7 @@ public interface Solution {
     Object[] destroyer(Object[] objects,Object... remove);
     int getIndexToIns(Object[] numbers,float number);
     String rot13(String word);
+    boolean endsWith(String str, String ending);
+    boolean canPack(int bigCount, int smallCount, int goal);
+    String printSquareStar(int number);
 }

@@ -219,4 +219,41 @@ public class MySolution implements Solution {
         }
         return result.toUpperCase();
     }
+
+    @Override
+    public boolean endsWith(String str, String ending) {
+        if (str.length() == 0 || ending.length() == 0 || str.length() == 0) return false;
+        if (str.substring(str.length() - ending.length()).equals(ending)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean canPack(int bigCount, int smallCount, int goal) {
+        if (bigCount < 0 || smallCount < 0 || goal < 0 || 5 * bigCount + smallCount < goal) return false;
+        return goal % 5 <= smallCount ? true : false;
+    }
+
+    @Override
+    public String printSquareStar(int number) {
+        String result = "";
+        if (number > 10) {
+            result += "Invalid Value";
+        } else {
+            for (int i = 0; i < number; i++) {
+                for (int j = 0; j < number; j++) {
+                    if (i == 0 || j == 0 || i == number-1 || j == number-1 || i == j || i + j == number - 1) {
+                        result += "*";
+                    } else {
+                        result += " ";
+                    }
+                }
+                result += "\n";
+            }
+        }
+        return result.trim();
+    }
+
+
 }
