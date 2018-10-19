@@ -222,4 +222,10 @@ import static org.junit.Assert.*;
                     "********", solution.printSquareStar(8));
         }
 
+        @Test
+        public void sort() {
+            assertArrayEquals(new int[]{1, 1, 2, 21, 23, 34, 34, 678, 865, 1245}, solution.sort(new int[]{1, 23, 678, 34, 1245, 2, 1, 34, 21, 865}));
+            assertArrayEquals(new int[]{-12, -6, 0, 1, 1, 21, 34, 34, 865, 1245}, solution.sort(new int[]{1, -6, 34, 1245, -12, 1, 34, 21, 0, 865}));
+        }
+
     }

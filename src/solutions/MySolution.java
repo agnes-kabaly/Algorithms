@@ -255,5 +255,23 @@ public class MySolution implements Solution {
         return result.trim();
     }
 
+    @Override
+    public int[] sort(int[] numArray) {
+        int temp;
+        for (int i = 0; i < numArray.length - 1; i++) {
+            for (int j = i + 1; j < numArray.length; j++) {
+                if (numArray[i] > numArray[j]) {
+                    temp = numArray[i];
+                    numArray[i] = numArray[j];
+                    numArray[j] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < numArray.length; i++) {
+            System.out.println(numArray[i]);
+        }
+        return numArray;
+    }
+
 
 }

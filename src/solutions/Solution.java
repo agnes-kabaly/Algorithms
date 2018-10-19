@@ -19,4 +19,5 @@ public interface Solution {
     boolean endsWith(String str, String ending);
     boolean canPack(int bigCount, int smallCount, int goal);
     String printSquareStar(int number);
+    int[] sort(int[] toSort);
 }
