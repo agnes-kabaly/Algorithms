@@ -236,4 +236,12 @@ import static org.junit.Assert.*;
             solution.displayTraversal(new File("/home/kabaly/0VALAMI"));
         }
 
+        @Test
+        public void getFibonacciByIndex() {
+            assertEquals(2, solution.getFibonacciByIndex(3));
+            assertEquals(5, solution.getFibonacciByIndex(5));
+            assertEquals(55, solution.getFibonacciByIndex(10));
+            assertEquals(1597, solution.getFibonacciByIndex(17));
+        }
+
     }

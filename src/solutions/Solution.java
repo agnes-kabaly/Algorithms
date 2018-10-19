@@ -23,4 +23,5 @@ public interface Solution {
     String printSquareStar(int number);
     int[] sort(int[] toSort);
     void displayTraversal(File toTraversal);
+    int getFibonacciByIndex(int n);
 }

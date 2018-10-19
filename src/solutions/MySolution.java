@@ -286,4 +286,10 @@ public class MySolution implements Solution {
         }
     }
 
+    @Override
+    public int getFibonacciByIndex(int n) {
+        if (n < 2) return n;
+        return getFibonacciByIndex(n - 2) + getFibonacciByIndex(n - 1);
+    }
+
 }
