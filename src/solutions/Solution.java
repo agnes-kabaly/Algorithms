@@ -1,5 +1,7 @@
 package solutions;
 
+import java.io.File;
+
 public interface Solution {
     String reverseString(String word);
     long factorialize(int number);
@@ -20,4 +22,5 @@ public interface Solution {
     boolean canPack(int bigCount, int smallCount, int goal);
     String printSquareStar(int number);
     int[] sort(int[] toSort);
+    void displayTraversal(File toTraversal);
 }

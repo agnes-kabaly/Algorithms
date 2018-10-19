@@ -1,5 +1,6 @@
 package solutions;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -273,5 +274,16 @@ public class MySolution implements Solution {
         return numArray;
     }
 
+    @Override
+    public void displayTraversal(File toTraversal) {
+        for (File file : toTraversal.listFiles()) {
+            if (file.getName().endsWith(".txt")) {
+                System.out.println(file.getAbsolutePath());
+            }
+            if (file.isDirectory()) {
+                displayTraversal(file);
+            }
+        }
+    }
 
 }
