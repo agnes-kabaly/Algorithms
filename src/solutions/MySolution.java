@@ -86,41 +86,29 @@ public class MySolution implements Solution {
     public int[] largestOfFour(int[][] numbers) {
         int[] result = new int[numbers.length];
         for (int i = 0; i < numbers.length; i++) {
-            result[i] = findMaxIndexValue(numbers[i]);
+            int max = 0;
+            for (int j = 0; j < numbers[i].length; j++) {
+                if (numbers[i][j] > max) {
+                    max = numbers[i][j];
+                }
+            }
+            result[i] = max;
         }
         return result;
-    }
-    public int findMaxIndexValue(int[] eachArray) {
-        int maxI = 0;
-        for (int i = 0; i < eachArray.length; i++) {
-            if (eachArray[i] > eachArray[maxI]) {
-                maxI = i;
-            }
-        }
-        return eachArray[maxI];
     }
 
     @Override
     public boolean confirmEnding(String word, String end) {
-        if (word.length() > end.length()) {
-            if (word.substring(word.length()-end.length()).equals(end)) {
-                return true;
-            }
-        }
-        return false;
+        return (word.substring(word.length() - end.length()).equals(end)) ? true : false;
     }
 
     @Override
     public String repeatStringNumTimes(String word, int counter) {
-        String result = "";
-        int count = 0;
-        if (counter >= 0) {
-            while (counter > count) {
-                result += word;
-                count++;
-            }
+        String res = "";
+        for (int i = 0; i < counter; i++) {
+            res += word;
         }
-        return result;
+        return res;
     }
 
     @Override
